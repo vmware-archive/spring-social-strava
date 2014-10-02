@@ -1,0 +1,2 @@
+http\://www.springframework.org/schema/social/spring-social-strava.xsd=org/springframework/social/strava/config/xml/spring-social-strava-1.0.xsd
+http\://www.springframework.org/schema/social/spring-social-strava-1.0.xsd=org/springframework/social/strava/config/xml/spring-social-strava-1.0.xsd

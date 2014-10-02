@@ -1,0 +1,1 @@
+http\://www.springframework.org/schema/social/strava=org.springframework.social.strava.config.xml.StravaNamespaceHandler
