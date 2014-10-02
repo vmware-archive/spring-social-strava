@@ -1,0 +1,8 @@
+pairs:
+  # <initials>: <Firstname> <Lastname>[; <email-id>]
+  tg: Tyson Gern; tgern
+  gz: Greg Ziebold; gziebold
+  nb: Nathan Barefield; nbarefield
+email:
+  prefix: pair
+  domain: pivotallabs.com

@@ -23,6 +23,7 @@ import static org.springframework.test.web.client.response.MockRestResponseCreat
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.MediaType;
+import org.springframework.social.strava.api.StravaAthleteProfile;
 
 /**
  * @author Craig Walls
@@ -30,29 +31,26 @@ import org.springframework.http.MediaType;
  * @author Andy Wilkinson
  */
 public class AthleteTemplateTest extends AbstractStravaApiTest {
-//
-//	@Test
-//	public void getUserProfile() throws Exception {
-//		mockServer.expect(requestTo("https://api.strava.com/user")).andExpect(method(GET))
-//				.andExpect(header("Authorization", "Bearer ACCESS_TOKEN"))
-//				.andRespond(withSuccess(new ClassPathResource("profile.json", getClass()), MediaType.APPLICATION_JSON));
-//		GitHubUserProfile profile = strava.athleteOperations().getUserProfile();
-//		assertEquals("habuma", profile.getLogin());
-//		assertEquals("Craig Walls", profile.getName());
-//		assertEquals("SpringSource", profile.getCompany());
-//		assertEquals("http://blog.springsource.com/author/cwalls/", profile.getBlog());
-//		assertEquals("cwalls at vmware.com", profile.getEmail());
-//		assertEquals(167926, profile.getId());
-//	}
-//
-//	@Test
-//	public void getProfileId() {
-//		mockServer.expect(requestTo("https://api.strava.com/user")).andExpect(method(GET))
-//				.andExpect(header("Authorization", "Bearer ACCESS_TOKEN"))
-//				.andRespond(withSuccess(new ClassPathResource("profile.json", getClass()), MediaType.APPLICATION_JSON));
-//		assertEquals("habuma", strava.athleteOperations().getProfileId());
-//	}
-//
+
+	@Test
+	public void getUserProfile() throws Exception {
+		mockServer.expect(requestTo("https://www.strava.com/api/v3/athlete")).andExpect(method(GET))
+				.andExpect(header("Authorization", "Bearer ACCESS_TOKEN"))
+				.andRespond(withSuccess(new ClassPathResource("profile.json", getClass()), MediaType.APPLICATION_JSON));
+		StravaAthleteProfile profile = strava.athleteOperations().getAthleteProfile();
+		assertEquals("John Applestrava", profile.getName());
+		assertEquals("john@applestrava.com", profile.getEmail());
+		assertEquals(227615, profile.getId());
+	}
+
+	@Test
+	public void getProfileId() {
+		mockServer.expect(requestTo("https://www.strava.com/api/v3/athlete")).andExpect(method(GET))
+				.andExpect(header("Authorization", "Bearer ACCESS_TOKEN"))
+				.andRespond(withSuccess(new ClassPathResource("profile.json", getClass()), MediaType.APPLICATION_JSON));
+		assertEquals("227615", strava.athleteOperations().getProfileId());
+	}
+
 	@Test
 	public void getProfileUrl() {
 		mockServer.expect(requestTo("https://www.strava.com/api/v3/athlete")).andExpect(method(GET))

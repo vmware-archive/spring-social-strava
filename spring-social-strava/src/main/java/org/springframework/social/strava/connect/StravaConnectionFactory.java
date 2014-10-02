@@ -18,10 +18,6 @@ package org.springframework.social.strava.connect;
 import org.springframework.social.connect.support.OAuth2ConnectionFactory;
 import org.springframework.social.strava.api.Strava;
 
-/**
- * Github ConnectionFactory implementation.
- * @author Keith Donald
- */
 public class StravaConnectionFactory extends OAuth2ConnectionFactory<Strava> {
 
 	/**

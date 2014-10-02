@@ -20,10 +20,6 @@ import org.springframework.social.strava.api.impl.StravaTemplate;
 import org.springframework.social.oauth2.AbstractOAuth2ServiceProvider;
 import org.springframework.social.oauth2.OAuth2Template;
 
-/**
- * Github ServiceProvider implementation.
- * @author Keith Donald
- */
 public class StravaServiceProvider extends AbstractOAuth2ServiceProvider<Strava> {
 
 	public StravaServiceProvider(String clientId, String clientSecret) {
@@ -31,7 +27,7 @@ public class StravaServiceProvider extends AbstractOAuth2ServiceProvider<Strava>
 	}
 
 	private static OAuth2Template createOAuth2Template(String clientId, String clientSecret) {
-		OAuth2Template oAuth2Template = new OAuth2Template(clientId, clientSecret, "https://strava.com/login/oauth/authorize", "https://strava.com/login/oauth/access_token");
+		OAuth2Template oAuth2Template = new OAuth2Template(clientId, clientSecret, "https://strava.com/oauth/authorize", "https://strava.com/oauth/access_token");
 		oAuth2Template.setUseParametersForClientAuthentication(true);
 		return oAuth2Template;
 	}

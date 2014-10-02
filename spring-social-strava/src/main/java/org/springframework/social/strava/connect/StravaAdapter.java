@@ -23,11 +23,6 @@ import org.springframework.social.strava.api.Strava;
 import org.springframework.social.strava.api.StravaAthleteProfile;
 import org.springframework.web.client.HttpClientErrorException;
 
-/**
- * Github ApiAdapter implementation.
- * @author Keith Donald
- * @author Andy Wilkinson
- */
 public class StravaAdapter implements ApiAdapter<Strava> {
 
 	public boolean test(Strava strava) {
@@ -43,17 +38,17 @@ public class StravaAdapter implements ApiAdapter<Strava> {
 	public void setConnectionValues(Strava strava, ConnectionValues values) {
         StravaAthleteProfile profile = strava.athleteOperations().getAthleteProfile();
 		values.setProviderUserId(String.valueOf(profile.getId()));		
-		values.setDisplayName(profile.getLogin());
-		values.setProfileUrl("https://strava.com/" + profile.getId()); // TODO: Expose and use HTML URL
+		values.setDisplayName(profile.getName());
+		values.setProfileUrl("https://www.strava.com/athlete/" + profile.getId()); // TODO: Expose and use HTML URL
 	}
 
 	public UserProfile fetchUserProfile(Strava strava) {
         StravaAthleteProfile profile = strava.athleteOperations().getAthleteProfile();
-		return new UserProfileBuilder().setName(profile.getName()).setEmail(profile.getEmail()).setUsername(profile.getLogin()).build();
+		return new UserProfileBuilder().setName(profile.getName()).setEmail(profile.getEmail()).setUsername(profile.getEmail()).build();
 	}
-	
+
 	public void updateStatus(Strava strava, String message) {
 		// not supported
 	}
-	
+
 }

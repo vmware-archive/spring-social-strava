@@ -35,14 +35,14 @@ public class StravaAdapterTest {
 	public void fetchProfile() {
 		AthleteOperations athleteOperations = Mockito.mock(AthleteOperations.class);
 		when(strava.athleteOperations()).thenReturn(athleteOperations);
-		when(athleteOperations.getAthleteProfile()).thenReturn(createProfile(123456L, "habuma", "cwalls@example.com", "Craig Walls"));
+		when(athleteOperations.getAthleteProfile()).thenReturn(createProfile(123456L, "Craig", "Walls", "cwalls@example.com"));
         UserProfile profile = apiAdapter.fetchUserProfile(strava);
         assertEquals("Craig Walls", profile.getName());
         assertEquals("cwalls@example.com", profile.getEmail());
-        assertEquals("habuma", profile.getUsername());
+        assertEquals("cwalls@example.com", profile.getUsername());
 	}
 
-    private StravaAthleteProfile createProfile(long id, String login, String email, String name) {
-        return new StravaAthleteProfile(id, name, email, login);
+    private StravaAthleteProfile createProfile(long id, String firstName, String lastName, String email) {
+        return new StravaAthleteProfile(id, firstName, lastName, email);
     }
 }

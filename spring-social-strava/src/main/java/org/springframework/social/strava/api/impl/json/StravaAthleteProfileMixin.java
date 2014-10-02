@@ -24,18 +24,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
  abstract class StravaAthleteProfileMixin extends StravaObjectMixin {
 
-    @JsonProperty("name")
-    String name;
+    @JsonProperty("firstname")
+    String firstName;
 
-    @JsonProperty("login")
-    String login;
+    @JsonProperty("lastname")
+    String lastName;
 
     @JsonProperty("email")
     String email;
 
     StravaAthleteProfileMixin(
             @JsonProperty("id") long id,
-            @JsonProperty("name") String name,
-            @JsonProperty("email") String email,
-            @JsonProperty("login") String login) {}
+            @JsonProperty("firstname") String firstName,
+            @JsonProperty("lastname") String lastName,
+            @JsonProperty("email") String email) {}
 }
