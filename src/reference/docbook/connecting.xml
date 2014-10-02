@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="connecting"
 		xmlns:xlink="http://www.w3.org/1999/xlink">
-	<title>Configuring GitHub Connectivity</title>		
+	<title>Configuring Strava Connectivity</title>		
 
 	<para>
 		Spring Social's <classname>ConnectController</classname> works with one or more provider-specific <classname>ConnectionFactory</classname>s to exchange authorization details with the provider and to create connections. 
-		Spring Social GitHub provides <classname>GitHubConnectionFactory</classname>, a <classname>ConnectionFactory</classname> for creating connections with GitHub.
+		Spring Social Strava provides <classname>StravaConnectionFactory</classname>, a <classname>ConnectionFactory</classname> for creating connections with Strava.
 	</para>
 
 	<para>
-		So that <classname>ConnectController</classname> can find <classname>GitHubConnectionFactory</classname>, it must be registered with a <classname>ConnectionFactoryRegistry</classname>.
-		The following class constructs a <classname>ConnectionFactoryRegistry</classname> containing a <interfacename>ConnectionFactory</interfacename> for GitHub using Spring's Java configuration style: 		
+		So that <classname>ConnectController</classname> can find <classname>StravaConnectionFactory</classname>, it must be registered with a <classname>ConnectionFactoryRegistry</classname>.
+		The following class constructs a <classname>ConnectionFactoryRegistry</classname> containing a <interfacename>ConnectionFactory</interfacename> for Strava using Spring's Java configuration style: 		
 	</para>
 	
 	<programlisting language="java"><![CDATA[
@@ -20,9 +20,9 @@ public class SocialConfig {
     @Bean
     public ConnectionFactoryLocator connectionFactoryLocator() {
         ConnectionFactoryRegistry registry = new ConnectionFactoryRegistry();
-        registry.addConnectionFactory(new GitHubConnectionFactory(
-            environment.getProperty("github.clientId"),
-            environment.getProperty("github.clientSecret")));
+        registry.addConnectionFactory(new StravaConnectionFactory(
+            environment.getProperty("strava.clientId"),
+            environment.getProperty("strava.clientSecret")));
         return registry;
     }
 
@@ -30,8 +30,8 @@ public class SocialConfig {
 ]]></programlisting>
 		
 	<para>
-		Here, a GitHub connection factory is registered with <classname>ConnectionFactoryRegistry</classname> via the <methodname>addConnectionFactory()</methodname> method.
-		If we wanted to add support for connecting to other providers, we would simply register their connection factories here in the same way as <classname>GitHubConnectionFactory</classname>.
+		Here, a Strava connection factory is registered with <classname>ConnectionFactoryRegistry</classname> via the <methodname>addConnectionFactory()</methodname> method.
+		If we wanted to add support for connecting to other providers, we would simply register their connection factories here in the same way as <classname>StravaConnectionFactory</classname>.
 	</para>
 	
 	<para>
@@ -40,7 +40,7 @@ public class SocialConfig {
 	</para>
 
 	<para>
-		Optionally, you may also configure <classname>ConnectionFactoryRegistry</classname> and <classname>GitHubConnectionFactory</classname> in XML:
+		Optionally, you may also configure <classname>ConnectionFactoryRegistry</classname> and <classname>StravaConnectionFactory</classname> in XML:
 	</para>
 		
 	<programlisting language="xml"><![CDATA[
@@ -48,8 +48,8 @@ public class SocialConfig {
     <property name="connectionFactories">
         <list>
             <bean class="org.springframework.social.strava.connect.StravaConnectionFactory">
-                <constructor-arg value="${github.clientId}" />
-                <constructor-arg value="${github.clientSecret}" />				
+                <constructor-arg value="${strava.clientId}" />
+                <constructor-arg value="${strava.clientSecret}" />				
             </bean>
         </list>
     </property>

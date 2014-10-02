@@ -27,7 +27,7 @@ public class StravaServiceProvider extends AbstractOAuth2ServiceProvider<Strava>
 	}
 
 	private static OAuth2Template createOAuth2Template(String clientId, String clientSecret) {
-		OAuth2Template oAuth2Template = new OAuth2Template(clientId, clientSecret, "https://strava.com/oauth/authorize", "https://strava.com/oauth/access_token");
+		OAuth2Template oAuth2Template = new OAuth2Template(clientId, clientSecret, "https://www.strava.com/oauth/authorize", "https://www.strava.com/oauth/token");
 		oAuth2Template.setUseParametersForClientAuthentication(true);
 		return oAuth2Template;
 	}
