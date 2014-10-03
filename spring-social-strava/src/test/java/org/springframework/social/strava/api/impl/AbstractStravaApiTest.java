@@ -31,7 +31,7 @@ import org.springframework.test.web.client.MockRestServiceServer;
  */
 public abstract class AbstractStravaApiTest {
 	protected StravaTemplate strava;
-	protected StravaTemplate unauthorizedGitHub;
+	protected StravaTemplate unauthorizedStrava;
 	protected MockRestServiceServer mockServer;
 	protected HttpHeaders responseHeaders;
 	
@@ -43,10 +43,10 @@ public abstract class AbstractStravaApiTest {
 		this.responseHeaders = new HttpHeaders();
 		responseHeaders.setContentType(MediaType.APPLICATION_JSON);
 		
-		this.unauthorizedGitHub = new StravaTemplate();
+		this.unauthorizedStrava = new StravaTemplate();
 		
 		// Create a mock server just to avoid hitting real Strava if something gets past the authorization check.
-		MockRestServiceServer.createServer(unauthorizedGitHub.getRestTemplate());
+		MockRestServiceServer.createServer(unauthorizedStrava.getRestTemplate());
 	}
 
 	protected Resource jsonResource(String filename) {

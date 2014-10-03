@@ -92,7 +92,7 @@ configure(subprojects) { subproject ->
 }
 
 project('spring-social-strava') {
-    description = 'Github API'
+    description = 'Strava API'
     dependencies {
        compile "org.springframework.social:spring-social-core:$springSocialVersion"
        compile ("org.springframework.social:spring-social-config:$springSocialVersion")
@@ -106,7 +106,7 @@ project('spring-social-strava') {
 }
 
 configure(rootProject) {
-    description = 'Spring Social GitHub'
+    description = 'Spring Social Strava'
 
     apply plugin: 'docbook-reference'
 

@@ -22,7 +22,7 @@ import org.springframework.social.strava.api.StravaSegmentEffort;
 import org.springframework.social.strava.api.StravaSegmentEffortAthlete;
 
 /**
- * Jackson module for setting up mixin annotations on GitHub model types.
+ * Jackson module for setting up mixin annotations on Strava model types.
  *
  * @author Andy Wilkinson
  */

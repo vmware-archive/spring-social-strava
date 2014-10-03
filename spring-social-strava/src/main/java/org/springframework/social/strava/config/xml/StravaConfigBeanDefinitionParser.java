@@ -39,7 +39,7 @@ import org.springframework.social.security.provider.SocialAuthenticationService;
 class StravaConfigBeanDefinitionParser extends AbstractProviderConfigBeanDefinitionParser {
 
 	public StravaConfigBeanDefinitionParser() {
-		super(StravaConnectionFactory.class, GitHubApiHelper.class);
+		super(StravaConnectionFactory.class, StravaApiHelper.class);
 	}
 	
 	@Override
@@ -53,15 +53,15 @@ class StravaConfigBeanDefinitionParser extends AbstractProviderConfigBeanDefinit
 		return builder.getBeanDefinition();
 	}
 
-	static class GitHubApiHelper implements ApiHelper<Strava> {
+	static class StravaApiHelper implements ApiHelper<Strava> {
 
 		private final UsersConnectionRepository usersConnectionRepository;
 
 		private final UserIdSource userIdSource;
 
-		private GitHubApiHelper(UsersConnectionRepository usersConnectionRepository, UserIdSource userIdSource) {
+		private StravaApiHelper(UsersConnectionRepository usersConnectionRepository, UserIdSource userIdSource) {
 			this.usersConnectionRepository = usersConnectionRepository;
-			this.userIdSource = userIdSource;		
+			this.userIdSource = userIdSource;
 		}
 
 		public Strava getApi() {
@@ -76,7 +76,7 @@ class StravaConfigBeanDefinitionParser extends AbstractProviderConfigBeanDefinit
 			return connection != null ? connection.getApi() : new StravaTemplate();
 		}
 
-		private final static Log logger = LogFactory.getLog(GitHubApiHelper.class);
+		private final static Log logger = LogFactory.getLog(StravaApiHelper.class);
 
 	}
 	
