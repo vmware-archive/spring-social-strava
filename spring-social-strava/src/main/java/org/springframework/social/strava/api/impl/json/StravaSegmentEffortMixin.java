@@ -25,6 +25,4 @@ abstract class StravaSegmentEffortMixin extends StravaObjectMixin  {
             @JsonProperty("start_date") String date,
             @JsonProperty("segment") StravaSegment segment,
             @JsonProperty("elapsed_time") long elapsedTime) {}
-
-
 }
