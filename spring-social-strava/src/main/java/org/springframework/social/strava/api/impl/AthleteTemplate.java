@@ -17,6 +17,7 @@ package org.springframework.social.strava.api.impl;
 
 import static java.util.Arrays.*;
 
+import java.net.URI;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -63,13 +64,9 @@ public class AthleteTemplate extends AbstractStravaOperations implements Athlete
 	}
 
     public List<StravaSegment> getSegments(String user) {
-        return asList(new StravaSegment());
+        return asList(new StravaSegment(123));
     }
 
-	private String buildAthleteUri(String path) {
-		return buildUri("/athlete/{athlete}" + path);
-	}
-	
 	private Date toDate(String dateString, DateFormat dateFormat) {
 		try {
 			return dateFormat.parse(dateString);

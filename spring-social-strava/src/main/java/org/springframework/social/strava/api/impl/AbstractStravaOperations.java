@@ -16,6 +16,11 @@
 package org.springframework.social.strava.api.impl;
 
 import org.springframework.social.MissingAuthorizationException;
+import org.springframework.social.support.URIBuilder;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+
+import java.net.URI;
 
 /**
  * <p>
@@ -36,13 +41,17 @@ class AbstractStravaOperations {
 			throw new MissingAuthorizationException("strava");
 		}
 	}
-	
-	// Using String here instead of URI so I can include braces in the path. See, e.g., RepoTemplate. [WLW]
-	protected String buildUri(String path) {
-//		return URIBuilder.fromUri(API_URL_BASE + path).build();
-		return API_URL_BASE + path;
-	}
+
+    protected URI buildUri(String path) {
+        return buildUri(path, EMPTY_PARAMETERS);
+    }
+
+    protected URI buildUri(String path, MultiValueMap<String, String> parameters) {
+        return URIBuilder.fromUri(API_URL_BASE + path).queryParams(parameters).build();
+    }
 	
 	// Strava API v3
 	private static final String API_URL_BASE = "https://www.strava.com/api/v3";
+
+    private static final LinkedMultiValueMap<String, String> EMPTY_PARAMETERS = new LinkedMultiValueMap<String, String>();
 }

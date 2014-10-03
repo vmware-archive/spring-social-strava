@@ -17,12 +17,12 @@ package org.springframework.social.strava.api.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.social.strava.api.SegmentEffortOperations;
 import org.springframework.social.strava.api.Strava;
 import org.springframework.social.strava.api.AthleteOperations;
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
 import org.springframework.social.oauth2.OAuth2Version;
 import org.springframework.social.strava.api.impl.json.StravaModule;
-import org.springframework.web.client.RestOperations;
 
 /**
  * <p>
@@ -30,40 +30,40 @@ import org.springframework.web.client.RestOperations;
  * </p>
  */
 public class StravaTemplate extends AbstractOAuth2ApiBinding implements Strava {
-	private AthleteOperations athleteOperations;
+    private AthleteOperations athleteOperations;
+    private SegmentEffortOperations segmentEffortOperations;
 
-	/**
-	 * No-arg constructor to support cases in which you want to call the Strava
-	 * API without requiring authorization. This is useful for public operations,
-	 * such as getting the list of watchers for a public repository.
-	 */
-	public StravaTemplate() {
-		super();
-		initSubApis();
-	}
+    /**
+     * No-arg constructor to support cases in which you want to call the Strava
+     * API without requiring authorization. This is useful for public operations,
+     * such as getting the list of watchers for a public repository.
+     */
+    public StravaTemplate() {
+        super();
+        initSubApis();
+    }
 
-	/**
-	 * Constructs a StravaTemplate with the minimal amount of information
-	 * required to sign requests with an OAuth <code>Authorization</code>
-	 * header.
-	 *
-	 * @param accessToken
-	 *            An access token granted to the application after OAuth
-	 *            authentication.
-	 */
-	public StravaTemplate(String accessToken) {
-		super(accessToken);
-		initSubApis();
-	}
+    /**
+     * Constructs a StravaTemplate with the minimal amount of information
+     * required to sign requests with an OAuth <code>Authorization</code>
+     * header.
+     *
+     * @param accessToken An access token granted to the application after OAuth
+     *                    authentication.
+     */
+    public StravaTemplate(String accessToken) {
+        super(accessToken);
+        initSubApis();
+    }
 
-	@Override
-	protected OAuth2Version getOAuth2Version() {
-		return OAuth2Version.BEARER;
-	}
+    @Override
+    protected OAuth2Version getOAuth2Version() {
+        return OAuth2Version.BEARER;
+    }
 
-	public AthleteOperations athleteOperations() {
-		return athleteOperations;
-	}
+    public AthleteOperations athleteOperations() {
+        return athleteOperations;
+    }
 
     @Override
     protected MappingJackson2HttpMessageConverter getJsonMessageConverter() {
@@ -76,8 +76,12 @@ public class StravaTemplate extends AbstractOAuth2ApiBinding implements Strava {
 
     // internal helpers
 
-	private void initSubApis() {
-		this.athleteOperations = new AthleteTemplate(getRestTemplate(), isAuthorized());
-	}
+    private void initSubApis() {
+        this.athleteOperations = new AthleteTemplate(getRestTemplate(), isAuthorized());
+        this.segmentEffortOperations = new SegmentEffortTemplate(getRestTemplate(), isAuthorized());
+    }
 
+    public SegmentEffortOperations segmentOperations() {
+        return segmentEffortOperations;
+    }
 }

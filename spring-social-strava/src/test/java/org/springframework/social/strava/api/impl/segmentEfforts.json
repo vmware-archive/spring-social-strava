@@ -1,0 +1,134 @@
+[
+    {
+        "id": 188196580,
+        "resource_state": 2,
+        "name": "SF2G San Bruno Ave Climb",
+        "activity": {
+            "id": 10740235
+        },
+        "athlete": {
+            "id": 5099
+        },
+        "elapsed_time": 62,
+        "moving_time": 62,
+        "start_date": "2006-04-21T13:20:40Z",
+        "start_date_local": "2006-04-21T06:20:40Z",
+        "distance": 236.82,
+        "start_index": 153,
+        "end_index": 161,
+        "average_watts": 216.2,
+        "segment": {
+            "id": 345781,
+            "resource_state": 2,
+            "name": "SF2G San Bruno Ave Climb",
+            "activity_type": "Ride",
+            "distance": 234.98,
+            "average_grade": 6.7,
+            "maximum_grade": 8.9,
+            "elevation_high": 34.2,
+            "elevation_low": 18.5,
+            "start_latlng": [37.72371, -122.402076],
+            "end_latlng": [37.721748, -122.401206],
+            "start_latitude": 37.72371,
+            "start_longitude": -122.402076,
+            "end_latitude": 37.721748,
+            "end_longitude": -122.401206,
+            "climb_category": 0,
+            "city": "San Francisco",
+            "state": "CA",
+            "country": "United States",
+            "private": false,
+            "starred": false
+        },
+        "kom_rank": null,
+        "pr_rank": null
+    },
+    {
+        "id": 1007829892,
+        "resource_state": 2,
+        "name": "SF2G San Bruno Ave Climb",
+        "activity": {
+            "id": 10740249
+        },
+        "athlete": {
+            "id": 5099
+        },
+        "elapsed_time": 59,
+        "moving_time": 59,
+        "start_date": "2006-04-28T13:52:31Z",
+        "start_date_local": "2006-04-28T06:52:31Z",
+        "distance": 231.2,
+        "start_index": 126,
+        "end_index": 133,
+        "average_watts": 229.3,
+        "segment": {
+            "id": 345781,
+            "resource_state": 2,
+            "name": "SF2G San Bruno Ave Climb",
+            "activity_type": "Ride",
+            "distance": 234.98,
+            "average_grade": 6.7,
+            "maximum_grade": 8.9,
+            "elevation_high": 34.2,
+            "elevation_low": 18.5,
+            "start_latlng": [37.72371, -122.402076],
+            "end_latlng": [37.721748, -122.401206],
+            "start_latitude": 37.72371,
+            "start_longitude": -122.402076,
+            "end_latitude": 37.721748,
+            "end_longitude": -122.401206,
+            "climb_category": 0,
+            "city": "San Francisco",
+            "state": "CA",
+            "country": "United States",
+            "private": false,
+            "starred": false
+        },
+        "kom_rank": null,
+        "pr_rank": null
+    },
+    {
+        "id": 188189007,
+        "resource_state": 2,
+        "name": "SF2G San Bruno Ave Climb",
+        "activity": {
+            "id": 10739246
+        },
+        "athlete": {
+            "id": 5099
+        },
+        "elapsed_time": 57,
+        "moving_time": 57,
+        "start_date": "2006-05-02T13:22:52Z",
+        "start_date_local": "2006-05-02T06:22:52Z",
+        "distance": 229.78,
+        "start_index": 141,
+        "end_index": 149,
+        "average_watts": 224.2,
+        "segment": {
+            "id": 345781,
+            "resource_state": 2,
+            "name": "SF2G San Bruno Ave Climb",
+            "activity_type": "Ride",
+            "distance": 234.98,
+            "average_grade": 6.7,
+            "maximum_grade": 8.9,
+            "elevation_high": 34.2,
+            "elevation_low": 18.5,
+            "start_latlng": [37.72371, -122.402076],
+            "end_latlng": [37.721748, -122.401206],
+            "start_latitude": 37.72371,
+            "start_longitude": -122.402076,
+            "end_latitude": 37.721748,
+            "end_longitude": -122.401206,
+            "climb_category": 0,
+            "city": "San Francisco",
+            "state": "CA",
+            "country": "United States",
+            "private": false,
+            "starred": false
+        },
+        "kom_rank": null,
+        "pr_rank": null
+    }
+]
