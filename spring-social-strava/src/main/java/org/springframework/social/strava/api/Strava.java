@@ -34,4 +34,11 @@ public interface Strava extends ApiBinding {
 	 * @return athlete operations
 	 */
 	AthleteOperations athleteOperations();
+
+	/**
+	 * Returns the portion of the Strava API containing the segment effort operations.
+	 *
+	 * @return segment effort operations
+	 */
+	SegmentEffortOperations segmentEffortOperations();
 }
