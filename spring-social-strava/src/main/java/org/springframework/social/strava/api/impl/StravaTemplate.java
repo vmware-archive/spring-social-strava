@@ -81,7 +81,7 @@ public class StravaTemplate extends AbstractOAuth2ApiBinding implements Strava {
         this.segmentEffortOperations = new SegmentEffortTemplate(getRestTemplate(), isAuthorized());
     }
 
-    public SegmentEffortOperations segmentOperations() {
+    public SegmentEffortOperations segmentEffortOperations() {
         return segmentEffortOperations;
     }
 }

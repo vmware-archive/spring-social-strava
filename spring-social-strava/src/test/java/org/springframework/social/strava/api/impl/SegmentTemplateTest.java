@@ -35,7 +35,7 @@ public class SegmentTemplateTest extends AbstractStravaApiTest {
 		mockServer.expect(requestTo("https://www.strava.com/api/v3/segments/1234/all_efforts?athlete_id=9876")).andExpect(method(GET))
 				.andExpect(header("Authorization", "Bearer ACCESS_TOKEN"))
 				.andRespond(withSuccess(new ClassPathResource("segmentEfforts.json", getClass()), MediaType.APPLICATION_JSON));
-		List<StravaSegmentEffort> segmentEfforts = strava.segmentOperations().getSegmentEfforts("1234", "9876");
+		List<StravaSegmentEffort> segmentEfforts = strava.segmentEffortOperations().getSegmentEfforts("1234", "9876");
 		assertEquals(3, segmentEfforts.size());
 
         StravaSegmentEffort segmentEffort = segmentEfforts.get(0);
