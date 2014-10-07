@@ -27,6 +27,10 @@ public class SegmentEffortTemplate extends AbstractStravaOperations implements S
         return restTemplate.getForObject(buildUri("/segments/" + segmentId + "/all_efforts", parameters), StravaSegmentEffortList.class);
     }
 
+    public StravaSegmentEffort getSegmentEffortById(String id) {
+        return restTemplate.getForObject(buildUri("/segment_efforts/" + id), StravaSegmentEffort.class);
+    }
+
     @SuppressWarnings("serial")
     private static class StravaSegmentEffortList extends ArrayList<StravaSegmentEffort> {}
 

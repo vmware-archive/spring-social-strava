@@ -17,11 +17,11 @@ package org.springframework.social.strava.api.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.social.strava.api.SegmentEffortOperations;
-import org.springframework.social.strava.api.Strava;
-import org.springframework.social.strava.api.AthleteOperations;
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
 import org.springframework.social.oauth2.OAuth2Version;
+import org.springframework.social.strava.api.AthleteOperations;
+import org.springframework.social.strava.api.SegmentEffortOperations;
+import org.springframework.social.strava.api.Strava;
 import org.springframework.social.strava.api.impl.json.StravaModule;
 
 /**
@@ -64,6 +64,9 @@ public class StravaTemplate extends AbstractOAuth2ApiBinding implements Strava {
     public AthleteOperations athleteOperations() {
         return athleteOperations;
     }
+    public SegmentEffortOperations segmentEffortOperations() {
+        return segmentEffortOperations;
+    }
 
     @Override
     protected MappingJackson2HttpMessageConverter getJsonMessageConverter() {
@@ -79,9 +82,5 @@ public class StravaTemplate extends AbstractOAuth2ApiBinding implements Strava {
     private void initSubApis() {
         this.athleteOperations = new AthleteTemplate(getRestTemplate(), isAuthorized());
         this.segmentEffortOperations = new SegmentEffortTemplate(getRestTemplate(), isAuthorized());
-    }
-
-    public SegmentEffortOperations segmentEffortOperations() {
-        return segmentEffortOperations;
     }
 }
