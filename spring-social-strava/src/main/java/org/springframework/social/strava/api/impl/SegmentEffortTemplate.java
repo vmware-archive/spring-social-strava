@@ -31,6 +31,14 @@ public class SegmentEffortTemplate extends AbstractStravaOperations implements S
         return restTemplate.getForObject(buildUri("/segment_efforts/" + id), StravaSegmentEffort.class);
     }
 
+    public List<StravaSegmentEffort> getAllSegmentEfforts(String segmentId, String startTime, String endTime) {
+        MultiValueMap<String, String> parameters = new LinkedMultiValueMap<String, String>();
+        parameters.set("start_date_local", startTime);
+        parameters.set("end_date_local", endTime);
+        parameters.set("per_page", "200");
+        return restTemplate.getForObject(buildUri("/segments/" + segmentId + "/all_efforts", parameters), StravaSegmentEffortList.class);
+    }
+
     @SuppressWarnings("serial")
     private static class StravaSegmentEffortList extends ArrayList<StravaSegmentEffort> {}
 

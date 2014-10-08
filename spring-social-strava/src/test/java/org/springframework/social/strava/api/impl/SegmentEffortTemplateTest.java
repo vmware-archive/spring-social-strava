@@ -27,7 +27,7 @@ import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.*;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
-public class SegmentTemplateTest extends AbstractStravaApiTest {
+public class SegmentEffortTemplateTest extends AbstractStravaApiTest {
 
 	@Test
 	public void testGetSegmentEfforts() throws Exception {
@@ -63,4 +63,24 @@ public class SegmentTemplateTest extends AbstractStravaApiTest {
         assertEquals(345781, segmentEffort.getSegment().getId());
         assertEquals(62, segmentEffort.getElapsedTime());
     }
+
+	@Test
+	public void testGetAllSegmentEfforts() throws Exception {
+		mockServer.expect(requestTo("https://www.strava.com/api/v3/segments/1234/all_efforts?start_date_local=2006-04-21T13%3A20%3A40Z&end_date_local=2006-04-22T13%3A20%3A40Z&per_page=200")).andExpect(method(GET))
+				.andExpect(header("Authorization", "Bearer ACCESS_TOKEN"))
+				.andRespond(withSuccess(new ClassPathResource("segmentEfforts.json", getClass()), MediaType.APPLICATION_JSON));
+
+        List<StravaSegmentEffort> segmentEfforts = strava.segmentEffortOperations().getAllSegmentEfforts("1234", "2006-04-21T13:20:40Z", "2006-04-22T13:20:40Z");
+		assertEquals(3, segmentEfforts.size());
+
+        StravaSegmentEffort segmentEffort = segmentEfforts.get(0);
+
+		assertEquals(188196580, segmentEffort.getId());
+		assertEquals("SF2G San Bruno Ave Climb", segmentEffort.getName());
+		assertEquals(5099, segmentEffort.getAthlete().getId());
+		assertEquals(236.82, segmentEffort.getDistance(), .1);
+		assertEquals("2006-04-21T13:20:40Z", segmentEffort.getDate());
+		assertEquals(345781, segmentEffort.getSegment().getId());
+		assertEquals(62, segmentEffort.getElapsedTime());
+	}
 }
