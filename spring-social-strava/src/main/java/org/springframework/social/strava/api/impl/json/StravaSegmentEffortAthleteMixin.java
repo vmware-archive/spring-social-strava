@@ -8,6 +8,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 abstract class StravaSegmentEffortAthleteMixin extends StravaObjectMixin  {
 
     StravaSegmentEffortAthleteMixin(
-            @JsonProperty("id") long id) {}
+            @JsonProperty("id") String id) {}
 
 }

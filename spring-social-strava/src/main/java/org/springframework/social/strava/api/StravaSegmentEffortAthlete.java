@@ -5,13 +5,13 @@ package org.springframework.social.strava.api;
  */
 public class StravaSegmentEffortAthlete {
 
-    private long id;
+    private String id;
 
-    public StravaSegmentEffortAthlete(long id) {
+    public StravaSegmentEffortAthlete(String id) {
         this.id = id;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 

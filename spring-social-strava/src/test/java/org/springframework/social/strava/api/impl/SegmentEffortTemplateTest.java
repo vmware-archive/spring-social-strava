@@ -41,7 +41,7 @@ public class SegmentEffortTemplateTest extends AbstractStravaApiTest {
 
 		assertEquals(188196580, segmentEffort.getId());
 		assertEquals("SF2G San Bruno Ave Climb", segmentEffort.getName());
-		assertEquals(5099, segmentEffort.getAthlete().getId());
+        assertEquals("5099", segmentEffort.getAthlete().getId());
 		assertEquals(236.82, segmentEffort.getDistance(), .1);
 		assertEquals("2006-04-21T13:20:40Z", segmentEffort.getDate());
 		assertEquals(345781, segmentEffort.getSegment().getId());
@@ -57,7 +57,7 @@ public class SegmentEffortTemplateTest extends AbstractStravaApiTest {
         StravaSegmentEffort segmentEffort = strava.segmentEffortOperations().getSegmentEffortById( "1234567");
         assertEquals(188196580, segmentEffort.getId());
         assertEquals("SF2G San Bruno Ave Climb", segmentEffort.getName());
-        assertEquals(5099, segmentEffort.getAthlete().getId());
+        assertEquals("5099", segmentEffort.getAthlete().getId());
         assertEquals(236.82, segmentEffort.getDistance(), .1);
         assertEquals("2006-04-21T13:20:40Z", segmentEffort.getDate());
         assertEquals(345781, segmentEffort.getSegment().getId());
@@ -77,7 +77,7 @@ public class SegmentEffortTemplateTest extends AbstractStravaApiTest {
 
 		assertEquals(188196580, segmentEffort.getId());
 		assertEquals("SF2G San Bruno Ave Climb", segmentEffort.getName());
-		assertEquals(5099, segmentEffort.getAthlete().getId());
+        assertEquals("5099", segmentEffort.getAthlete().getId());
 		assertEquals(236.82, segmentEffort.getDistance(), .1);
 		assertEquals("2006-04-21T13:20:40Z", segmentEffort.getDate());
 		assertEquals(345781, segmentEffort.getSegment().getId());
