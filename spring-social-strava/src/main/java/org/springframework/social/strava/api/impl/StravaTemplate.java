@@ -21,6 +21,7 @@ import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
 import org.springframework.social.oauth2.OAuth2Version;
 import org.springframework.social.strava.api.AthleteOperations;
 import org.springframework.social.strava.api.SegmentEffortOperations;
+import org.springframework.social.strava.api.SegmentOperations;
 import org.springframework.social.strava.api.Strava;
 import org.springframework.social.strava.api.impl.json.StravaModule;
 
@@ -32,6 +33,7 @@ import org.springframework.social.strava.api.impl.json.StravaModule;
 public class StravaTemplate extends AbstractOAuth2ApiBinding implements Strava {
     private AthleteOperations athleteOperations;
     private SegmentEffortOperations segmentEffortOperations;
+    private SegmentOperations segmentOperations;
 
     /**
      * No-arg constructor to support cases in which you want to call the Strava
@@ -67,6 +69,9 @@ public class StravaTemplate extends AbstractOAuth2ApiBinding implements Strava {
     public SegmentEffortOperations segmentEffortOperations() {
         return segmentEffortOperations;
     }
+    public SegmentOperations segmentOperations() {
+        return segmentOperations;
+    }
 
     @Override
     protected MappingJackson2HttpMessageConverter getJsonMessageConverter() {
@@ -82,5 +87,6 @@ public class StravaTemplate extends AbstractOAuth2ApiBinding implements Strava {
     private void initSubApis() {
         this.athleteOperations = new AthleteTemplate(getRestTemplate(), isAuthorized());
         this.segmentEffortOperations = new SegmentEffortTemplate(getRestTemplate(), isAuthorized());
+        this.segmentOperations = new SegmentTemplate(getRestTemplate(), isAuthorized());
     }
 }

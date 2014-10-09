@@ -16,10 +16,7 @@
 package org.springframework.social.strava.api.impl.json;
 
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import org.springframework.social.strava.api.StravaAthleteProfile;
-import org.springframework.social.strava.api.StravaSegment;
-import org.springframework.social.strava.api.StravaSegmentEffort;
-import org.springframework.social.strava.api.StravaSegmentEffortAthlete;
+import org.springframework.social.strava.api.*;
 
 /**
  * Jackson module for setting up mixin annotations on Strava model types.
@@ -38,5 +35,7 @@ public class StravaModule extends SimpleModule {
         context.setMixInAnnotations(StravaSegmentEffort.class, StravaSegmentEffortMixin.class);
         context.setMixInAnnotations(StravaSegmentEffortAthlete.class, StravaSegmentEffortAthleteMixin.class);
         context.setMixInAnnotations(StravaSegment.class, StravaSegmentMixin.class);
+        context.setMixInAnnotations(StravaSegment.class, StravaSegmentDetailsMixin.class);
+        context.setMixInAnnotations(StravaMap.class, StravaMapMixin.class);
     }
 }

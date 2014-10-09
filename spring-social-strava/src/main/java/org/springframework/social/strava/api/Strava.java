@@ -16,7 +16,6 @@
 package org.springframework.social.strava.api;
 
 import org.springframework.social.ApiBinding;
-import org.springframework.web.client.RestOperations;
 
 /**
  * Interface specifying a basic set of operations for interacting with Strava.
@@ -41,4 +40,11 @@ public interface Strava extends ApiBinding {
 	 * @return segment effort operations
 	 */
 	SegmentEffortOperations segmentEffortOperations();
+
+	/**
+	 * Returns the portion of the Strava API containing the segment operations.
+	 *
+	 * @return segment operations
+	 */
+	SegmentOperations segmentOperations();
 }

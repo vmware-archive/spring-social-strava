@@ -18,6 +18,7 @@ package org.springframework.social.strava.api.impl;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.MediaType;
+import org.springframework.social.strava.api.StravaSegment;
 import org.springframework.social.strava.api.StravaSegmentEffort;
 
 import java.util.List;
@@ -49,7 +50,7 @@ public class SegmentEffortTemplateTest extends AbstractStravaApiTest {
 	}
 
     @Test
-    public void testGetSegmentById() throws Exception {
+    public void testGetSegmentEffortById() throws Exception {
         mockServer.expect(requestTo("https://www.strava.com/api/v3/segment_efforts/1234567")).andExpect(method(GET))
                 .andExpect(header("Authorization", "Bearer ACCESS_TOKEN"))
                 .andRespond(withSuccess(new ClassPathResource("segmentEffort.json", getClass()), MediaType.APPLICATION_JSON));
@@ -82,5 +83,20 @@ public class SegmentEffortTemplateTest extends AbstractStravaApiTest {
 		assertEquals("2006-04-21T13:20:40Z", segmentEffort.getDate());
 		assertEquals(345781, segmentEffort.getSegment().getId());
 		assertEquals(62, segmentEffort.getElapsedTime());
+	}
+
+	@Test
+	public void testGetSegmentById() throws Exception {
+		mockServer.expect(requestTo("https://www.strava.com/api/v3/segments/1234")).andExpect(method(GET))
+				.andExpect(header("Authorization", "Bearer ACCESS_TOKEN"))
+				.andRespond(withSuccess(new ClassPathResource("segment.json", getClass()), MediaType.APPLICATION_JSON));
+
+        StravaSegment segment = strava.segmentOperations().getSegmentById("1234");
+
+		assertEquals(229781, segment.getId());
+		assertEquals("Hawk Hill", segment.getName());
+        assertEquals("Ride", segment.getActivityType());
+		assertEquals(2684.82, segment.getDistance(), .1);
+		assertEquals("}g|e...VJr@", segment.getMap().getPolyline());
 	}
 }
