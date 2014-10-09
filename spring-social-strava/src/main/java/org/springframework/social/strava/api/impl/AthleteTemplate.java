@@ -15,9 +15,11 @@
  */
 package org.springframework.social.strava.api.impl;
 
-import static java.util.Arrays.*;
+import org.springframework.social.strava.api.AthleteOperations;
+import org.springframework.social.strava.api.StravaAthleteProfile;
+import org.springframework.social.strava.api.StravaSegment;
+import org.springframework.web.client.RestTemplate;
 
-import java.net.URI;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,10 +27,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import org.springframework.social.strava.api.StravaAthleteProfile;
-import org.springframework.social.strava.api.StravaSegment;
-import org.springframework.social.strava.api.AthleteOperations;
-import org.springframework.web.client.RestTemplate;
+import static java.util.Arrays.asList;
 
 /**
  * <p>
@@ -63,6 +62,10 @@ public class AthleteTemplate extends AbstractStravaOperations implements Athlete
 		return "https://www.strava.com/athletes/" + getProfileId();
 	}
 
+    public StravaAthleteProfile getAthleteProfileById(String id) {
+        return restTemplate.getForObject(buildUri("/athletes/" + id), StravaAthleteProfile.class);
+    }
+
     public List<StravaSegment> getSegments(String user) {
         return asList(new StravaSegment(123));
     }
@@ -76,5 +79,4 @@ public class AthleteTemplate extends AbstractStravaOperations implements Athlete
 	}
 
 	private DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss Z", Locale.ENGLISH);
-	
 }

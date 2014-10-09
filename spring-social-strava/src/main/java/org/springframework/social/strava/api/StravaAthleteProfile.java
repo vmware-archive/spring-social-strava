@@ -7,12 +7,20 @@ public class StravaAthleteProfile implements Serializable {
     private String firstName;
     private String lastName;
     private String email;
+    private String avatarMedium;
+    private String avatarLarge;
 
-    public StravaAthleteProfile(long id, String firstName, String lastName, String email) {
+    public StravaAthleteProfile(long id, String firstName, String lastName, String email, String avatarMedium, String avatarLarge) {
         this.id = id;
+        this.email = email;
+        this.avatarMedium = avatarMedium;
+        this.avatarLarge = avatarLarge;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getName() {
@@ -23,11 +31,15 @@ public class StravaAthleteProfile implements Serializable {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getAvatarMedium() {
+        return avatarMedium;
     }
 
-    public long getId() {
-        return id;
+    public String getAvatarLarge() {
+        return avatarLarge;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

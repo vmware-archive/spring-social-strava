@@ -15,15 +15,15 @@
  */
 package org.springframework.social.strava.api.impl;
 
-import static org.junit.Assert.*;
-import static org.springframework.http.HttpMethod.*;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.*;
-import static org.springframework.test.web.client.response.MockRestResponseCreators.*;
-
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.MediaType;
 import org.springframework.social.strava.api.StravaAthleteProfile;
+
+import static org.junit.Assert.assertEquals;
+import static org.springframework.http.HttpMethod.GET;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.*;
+import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
 /**
  * @author Craig Walls
@@ -41,6 +41,20 @@ public class AthleteTemplateTest extends AbstractStravaApiTest {
 		assertEquals("John Applestrava", profile.getName());
 		assertEquals("john@applestrava.com", profile.getEmail());
 		assertEquals(227615, profile.getId());
+        assertEquals("http://pics.com/227615/medium.jpg", profile.getAvatarMedium());
+        assertEquals("http://pics.com/227615/large.jpg", profile.getAvatarLarge());
+	}
+
+	@Test
+	public void getAthleteById() throws Exception {
+		mockServer.expect(requestTo("https://www.strava.com/api/v3/athletes/5678")).andExpect(method(GET))
+				.andExpect(header("Authorization", "Bearer ACCESS_TOKEN"))
+				.andRespond(withSuccess(new ClassPathResource("athlete.json", getClass()), MediaType.APPLICATION_JSON));
+		StravaAthleteProfile profile = strava.athleteOperations().getAthleteProfileById("5678");
+		assertEquals("John Applestrava", profile.getName());
+		assertEquals(227615, profile.getId());
+		assertEquals("http://pics.com/227615/medium.jpg", profile.getAvatarMedium());
+		assertEquals("http://pics.com/227615/large.jpg", profile.getAvatarLarge());
 	}
 
 	@Test

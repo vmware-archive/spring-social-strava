@@ -33,9 +33,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
     @JsonProperty("email")
     String email;
 
+    @JsonProperty("profile_medium")
+    String avatarMedium;
+
+    @JsonProperty("profile")
+    String avatarLarge;
+
     StravaAthleteProfileMixin(
             @JsonProperty("id") long id,
             @JsonProperty("firstname") String firstName,
             @JsonProperty("lastname") String lastName,
-            @JsonProperty("email") String email) {}
+            @JsonProperty("email") String email,
+            @JsonProperty("profile_medium") String avatarMedium,
+            @JsonProperty("profile") String avatarLarge) {}
 }

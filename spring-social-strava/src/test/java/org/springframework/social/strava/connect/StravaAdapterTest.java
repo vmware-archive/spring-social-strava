@@ -15,15 +15,15 @@
  */
 package org.springframework.social.strava.connect;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.social.connect.UserProfile;
-import org.springframework.social.strava.api.Strava;
 import org.springframework.social.strava.api.AthleteOperations;
+import org.springframework.social.strava.api.Strava;
 import org.springframework.social.strava.api.StravaAthleteProfile;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
 
 public class StravaAdapterTest {
 
@@ -35,14 +35,14 @@ public class StravaAdapterTest {
 	public void fetchProfile() {
 		AthleteOperations athleteOperations = Mockito.mock(AthleteOperations.class);
 		when(strava.athleteOperations()).thenReturn(athleteOperations);
-		when(athleteOperations.getAthleteProfile()).thenReturn(createProfile(123456L, "Craig", "Walls", "cwalls@example.com"));
+		when(athleteOperations.getAthleteProfile()).thenReturn(createProfile(123456L, "Craig", "Walls", "cwalls@example.com", "http://pics.com/227615/medium.jpg", "http://pics.com/227615/large.jpg"));
         UserProfile profile = apiAdapter.fetchUserProfile(strava);
         assertEquals("Craig Walls", profile.getName());
         assertEquals("cwalls@example.com", profile.getEmail());
         assertEquals("cwalls@example.com", profile.getUsername());
 	}
 
-    private StravaAthleteProfile createProfile(long id, String firstName, String lastName, String email) {
-        return new StravaAthleteProfile(id, firstName, lastName, email);
+    private StravaAthleteProfile createProfile(long id, String firstName, String lastName, String email, String avatarMedium, String avatarLarge) {
+        return new StravaAthleteProfile(id, firstName, lastName, email, avatarMedium, avatarLarge);
     }
 }

@@ -42,4 +42,6 @@ public interface AthleteOperations {
     StravaAthleteProfile getAthleteProfile();
 
     String getProfileUrl();
+
+    StravaAthleteProfile getAthleteProfileById(String id);
 }
