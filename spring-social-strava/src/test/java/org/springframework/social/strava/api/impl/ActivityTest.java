@@ -52,7 +52,7 @@ public class ActivityTest extends AbstractStravaApiTest {
 
     @Test
     public void testGetAllActivities() throws Exception {
-        mockServer.expect(requestTo("https://www.strava.com/api/v3/activities")).andExpect(method(GET))
+        mockServer.expect(requestTo("https://www.strava.com/api/v3/activities?per_page=200")).andExpect(method(GET))
                 .andExpect(header("Authorization", "Bearer ACCESS_TOKEN"))
                 .andRespond(withSuccess(new ClassPathResource("activities.json", getClass()), MediaType.APPLICATION_JSON));
 
@@ -72,5 +72,15 @@ public class ActivityTest extends AbstractStravaApiTest {
         assertEquals(1, activity.getSegmentEfforts().size());
         assertEquals(543755075, activity.getSegmentEfforts().get(0).getId());
         assertEquals(2417854, activity.getSegmentEfforts().get(0).getSegment().getId());
+    }
+
+    @Test
+    public void testGetAllActivitiesLimit() throws Exception {
+        mockServer.expect(requestTo("https://www.strava.com/api/v3/activities?per_page=10")).andExpect(method(GET))
+                .andExpect(header("Authorization", "Bearer ACCESS_TOKEN"))
+                .andRespond(withSuccess(new ClassPathResource("activities.json", getClass()), MediaType.APPLICATION_JSON));
+
+        List<StravaActivity> activities = strava.activityOperations().getAllActivities(10);
+        assertEquals(1, activities.size());
     }
 }
