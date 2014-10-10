@@ -47,4 +47,13 @@ public interface Strava extends ApiBinding {
 	 * @return segment operations
 	 */
 	SegmentOperations segmentOperations();
+
+    /**
+     * Returns the portion of the Strava API containing the activity operations.
+     *
+     * @return segment operations
+     */
+    ActivityOperations activityOperations();
+
+
 }

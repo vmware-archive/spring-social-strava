@@ -37,5 +37,6 @@ public class StravaModule extends SimpleModule {
         context.setMixInAnnotations(StravaSegment.class, StravaSegmentMixin.class);
         context.setMixInAnnotations(StravaSegment.class, StravaSegmentDetailsMixin.class);
         context.setMixInAnnotations(StravaMap.class, StravaMapMixin.class);
+        context.setMixInAnnotations(StravaActivity.class, StravaActivityMixin.class);
     }
 }
