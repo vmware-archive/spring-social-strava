@@ -10,9 +10,13 @@ abstract class StravaMapMixin extends StravaObjectMixin  {
     @JsonProperty("polyline")
     String polyline;
 
+    @JsonProperty("summary_polyline")
+    String summaryPolyline;
+
     StravaMapMixin(
             @JsonProperty("id") String id,
             @JsonProperty("polyline") String polyline,
+            @JsonProperty("summary_polyline") String summaryPolyline,
             @JsonProperty("resource_state") long resourceState
     ) {}
 }

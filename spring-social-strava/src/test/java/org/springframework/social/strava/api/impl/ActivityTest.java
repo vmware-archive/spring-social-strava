@@ -69,6 +69,7 @@ public class ActivityTest extends AbstractStravaApiTest {
         assertEquals(1333, activity.getElapsedTime());
         assertEquals("2012-12-13T03:43:19Z", activity.getDate());
         assertEquals("kiteFpCBCD]", activity.getMap().getPolyline());
+        assertEquals("{cteFjcaBkCx@gEz@", activity.getMap().getSummaryPolyline());
         assertEquals(1, activity.getSegmentEfforts().size());
         assertEquals(543755075, activity.getSegmentEfforts().get(0).getId());
         assertEquals(2417854, activity.getSegmentEfforts().get(0).getSegment().getId());
