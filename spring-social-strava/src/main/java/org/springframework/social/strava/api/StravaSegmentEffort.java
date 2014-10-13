@@ -8,8 +8,9 @@ public class StravaSegmentEffort {
     private String date;
     private StravaSegment segment;
     private long elapsedTime;
+    private StravaActivity activity;
 
-    public StravaSegmentEffort(long id, String name, StravaSegmentEffortAthlete athlete, float distance, String date, StravaSegment segment, long elapsedTime) {
+    public StravaSegmentEffort(long id, String name, StravaSegmentEffortAthlete athlete, float distance, String date, StravaSegment segment, long elapsedTime, StravaActivity activity) {
         this.id = id;
         this.name = name;
         this.athlete = athlete;
@@ -17,6 +18,7 @@ public class StravaSegmentEffort {
         this.date = date;
         this.segment = segment;
         this.elapsedTime = elapsedTime;
+        this.activity = activity;
     }
 
     public long getId() {
@@ -45,5 +47,9 @@ public class StravaSegmentEffort {
 
     public long getElapsedTime() {
         return elapsedTime;
+    }
+
+    public StravaActivity getActivity() {
+        return activity;
     }
 }

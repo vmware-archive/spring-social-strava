@@ -26,6 +26,10 @@ public class StravaActivity implements Serializable {
         this.segmentEfforts = segmentEfforts;
     }
 
+    public StravaActivity(long id) {
+        this.id = id;
+    }
+
     public long getId() {
         return id;
     }

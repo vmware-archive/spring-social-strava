@@ -82,5 +82,6 @@ public class SegmentEffortTemplateTest extends AbstractStravaApiTest {
 		assertEquals("2006-04-21T13:20:40Z", segmentEffort.getDate());
 		assertEquals(345781, segmentEffort.getSegment().getId());
 		assertEquals(62, segmentEffort.getElapsedTime());
+        assertEquals(10740235, segmentEffort.getActivity().getId());
 	}
 }

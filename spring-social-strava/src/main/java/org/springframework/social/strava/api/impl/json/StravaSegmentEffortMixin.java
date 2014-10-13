@@ -1,8 +1,8 @@
 package org.springframework.social.strava.api.impl.json;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.social.strava.api.StravaActivity;
 import org.springframework.social.strava.api.StravaSegment;
-import org.springframework.social.strava.api.StravaSegmentEffort;
 import org.springframework.social.strava.api.StravaSegmentEffortAthlete;
 
 /**
@@ -24,5 +24,6 @@ abstract class StravaSegmentEffortMixin extends StravaObjectMixin  {
             @JsonProperty("distance") float distance,
             @JsonProperty("start_date") String date,
             @JsonProperty("segment") StravaSegment segment,
-            @JsonProperty("elapsed_time") long elapsedTime) {}
+            @JsonProperty("elapsed_time") long elapsedTime,
+            @JsonProperty("activity") StravaActivity activity) {}
 }
