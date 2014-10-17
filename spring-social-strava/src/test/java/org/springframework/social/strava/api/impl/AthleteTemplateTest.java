@@ -25,11 +25,6 @@ import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.*;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
-/**
- * @author Craig Walls
- * @author Willie Wheeler (willie.wheeler@gmail.com)
- * @author Andy Wilkinson
- */
 public class AthleteTemplateTest extends AbstractStravaApiTest {
 
 	@Test

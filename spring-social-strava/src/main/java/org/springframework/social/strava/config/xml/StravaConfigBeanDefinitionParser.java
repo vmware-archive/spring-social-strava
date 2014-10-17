@@ -15,8 +15,6 @@
  */
 package org.springframework.social.strava.config.xml;
 
-import java.util.Map;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -26,15 +24,16 @@ import org.springframework.social.config.xml.AbstractProviderConfigBeanDefinitio
 import org.springframework.social.config.xml.ApiHelper;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.UsersConnectionRepository;
+import org.springframework.social.security.provider.SocialAuthenticationService;
 import org.springframework.social.strava.api.Strava;
 import org.springframework.social.strava.api.impl.StravaTemplate;
 import org.springframework.social.strava.connect.StravaConnectionFactory;
 import org.springframework.social.strava.security.StravaAuthenticationService;
-import org.springframework.social.security.provider.SocialAuthenticationService;
+
+import java.util.Map;
 
 /**
  * Implementation of {@link AbstractConnectionFactoryBeanDefinitionParser} that creates a {@link org.springframework.social.strava.connect.StravaConnectionFactory}.
- * @author Craig Walls
  */
 class StravaConfigBeanDefinitionParser extends AbstractProviderConfigBeanDefinitionParser {
 

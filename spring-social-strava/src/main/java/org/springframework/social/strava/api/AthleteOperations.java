@@ -19,8 +19,6 @@ import java.util.List;
 
 /**
  * Interface defining the operations for working with Strava users.
- * 
- * @author Willie Wheeler (willie.wheeler@gmail.com)
  */
 public interface AthleteOperations {
 	

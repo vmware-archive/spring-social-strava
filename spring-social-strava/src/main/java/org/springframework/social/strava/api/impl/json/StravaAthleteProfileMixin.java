@@ -19,8 +19,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Annotated mixin to add annotations to {@link org.springframework.social.strava.api.StravaAthleteProfile}
- *
- * @author Andy Wilkinson
  */
  abstract class StravaAthleteProfileMixin extends StravaObjectMixin {
 

@@ -26,8 +26,6 @@ import java.net.URI;
  * <p>
  * Based on <code>AbstractStravaOperations</code>, by Keith Donald.
  * </p>
- * 
- * @author Willie Wheeler (willie.wheeler@gmail.com)
  */
 class AbstractStravaOperations {
 	private final boolean isAuthorized;

@@ -26,8 +26,6 @@ import org.springframework.test.web.client.MockRestServiceServer;
  * <p>
  * Based on <code>AbstractTwitterApiTest</code>.
  * </p>
- * 
- * @author Willie Wheeler (willie.wheeler@gmail.com)
  */
 public abstract class AbstractStravaApiTest {
 	protected StravaTemplate strava;

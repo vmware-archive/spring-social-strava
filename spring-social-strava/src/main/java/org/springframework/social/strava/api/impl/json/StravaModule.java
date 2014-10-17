@@ -20,8 +20,6 @@ import org.springframework.social.strava.api.*;
 
 /**
  * Jackson module for setting up mixin annotations on Strava model types.
- *
- * @author Andy Wilkinson
  */
 public class StravaModule extends SimpleModule {
 

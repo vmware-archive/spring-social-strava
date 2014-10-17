@@ -21,8 +21,6 @@ import org.springframework.social.config.xml.AbstractProviderConfigNamespaceHand
 
 /**
  * {@link NamespaceHandler} for Spring Social Strava
- * 
- * @author Craig Walls
  */
 public class StravaNamespaceHandler extends AbstractProviderConfigNamespaceHandler {
 

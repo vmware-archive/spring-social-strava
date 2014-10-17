@@ -33,9 +33,6 @@ import static java.util.Arrays.asList;
  * <p>
  * User template implementation.
  * </p>
- * 
- * @author Willie Wheeler (willie.wheeler@gmail.com)
- * @author Andy Wilkinson
  */
 public class AthleteTemplate extends AbstractStravaOperations implements AthleteOperations {
 
